@@ -1,7 +1,7 @@
+import matplotlib.pyplot as plt
 import matplotlib
 
 matplotlib.use("Agg")
-import matplotlib.pyplot as plt
 
 w = 10
 b = 40
@@ -25,10 +25,6 @@ for epoch in range(100):
 
         w -= 0.001 * error * x
         b -= 0.001 * error
-
-        if (epoch % 10 == 0):
-            print(f"epoch: {epoch}")
-            print(error)
 
 print(f"w: {w}")
 print(f"b: {b}")
