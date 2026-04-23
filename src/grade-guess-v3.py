@@ -1,3 +1,8 @@
+import matplotlib
+
+matplotlib.use("Agg")
+import matplotlib.pyplot as plt
+
 w = 10
 b = 40
 data = [
@@ -33,3 +38,19 @@ for x, y_true in data:
 
     print(f"{x} hours: {y_pred} points")
     print(f"error: {y_pred - y_true}")
+
+x_values = [x for x, _ in data]
+y_actual = [y for _, y in data]
+y_predicted = [predict(x) for x in x_values]
+
+plt.figure(figsize=(8, 5))
+plt.scatter(x_values, y_actual, color="blue", label="Actual (x, y)")
+plt.plot(x_values, y_predicted, color="red", linewidth=2, label="Linear fit")
+plt.xlabel("x (hours)")
+plt.ylabel("y (points)")
+plt.title("Grade Guess v3: Linear Relationship")
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+plt.savefig("output/grade-guess-v3-plot.png")
+print("Saved plot: output/grade-guess-v3-plot.png")
