@@ -20,7 +20,7 @@ model = torch.nn.Linear(1, 1)
 criterion = torch.nn.MSELoss()
 optimizer = torch.optim.SGD(model.parameters(), lr=0.001)
 
-for epoch in range(100000):
+for epoch in range(5):
 	y_pred = model(x_train)
 	loss = criterion(y_pred, y_train)
 
